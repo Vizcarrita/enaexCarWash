@@ -1,0 +1,208 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+<div class="max-w-lg mx-auto bg-white min-h-screen">
+    <!-- Formulario de datos -->
+    <div class="p-6 border-b border-gray-200">
+        <form id="appointmentForm" class="space-y-6">
+            <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex items-center gap-2 mb-4">
+                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <h4 class="font-medium text-gray-900">Datos del solicitante</h4>
+                </div>
+                
+                <div class="space-y-4">
+                    <!-- Nombre -->
+                    <div>
+                        <label for="nombre" class="block text-sm font-medium text-gray-700 mb-2">
+                            Nombre y Apellido
+                        </label>
+                        <input 
+                            type="text" 
+                            id="nombre" 
+                            name="nombre" 
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                            placeholder="Ingresa tu nombre completo"
+                        >
+                    </div>
+
+                    <!-- Área -->
+                    <div>
+                        <label for="area" class="block text-sm font-medium text-gray-700 mb-2">
+                            Área
+                        </label>
+                        <select 
+                            id="area" 
+                            name="area" 
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        >
+                            <option value="">Selecciona tu área</option>
+                            <option value="administracion">Administración</option>
+                            <option value="DCE">DCE</option>
+                            <option value="HSEC">HSEC</option>
+                            <option value="Dep.Explosivos">Dep.Explosivos</option>
+                            <option value="Dep.Acido">Dep.Acido</option>
+                            <option value="Calidad">Calidad</option>
+                            <option value="Mantencion">Mantencion</option>
+                            <option value="Magazines">Magazines</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+
+                    <!-- Patente Vehículo -->
+                    <div>
+                        <label for="patente" class="block text-sm font-medium text-gray-700 mb-2">
+                            Patente del vehículo
+                        </label>
+                        <input 
+                            type="text" 
+                            id="patente" 
+                            name="patente" 
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors uppercase"
+                            placeholder="ABCD-12"
+                            maxlength="7"
+                            pattern="[A-Za-z]{2,5}-\d{1,3}"
+                        >
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Header del calendario -->
+    <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center justify-between mb-4">
+            <h1 class="text-xl font-semibold text-gray-900" id="monthYear">Junio 2025</h1>
+            <div class="flex gap-2">
+                <button id="prevMonth" class="p-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button id="nextMonth" class="p-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Calendar Days -->
+        <div class="grid grid-cols-7 gap-2">
+            <div class="day-card selected-day rounded-lg p-3 text-center cursor-pointer transition-colors" data-date="2025-06-09">
+                <div class="text-sm text-gray-600 mb-1">Lun.</div>
+                <div class="text-2xl font-bold">9</div>
+                <div class="text-xs">JUN.</div>
+            </div>
+            <div class="day-card bg-gray-100 rounded-lg p-3 text-center cursor-pointer hover:bg-gray-200 transition-colors" data-date="2025-06-10">
+                <div class="text-sm text-gray-600 mb-1">Mar.</div>
+                <div class="text-2xl font-bold">10</div>
+                <div class="text-xs">JUN.</div>
+            </div>
+            <div class="day-card bg-gray-100 rounded-lg p-3 text-center cursor-pointer hover:bg-gray-200 transition-colors" data-date="2025-06-11">
+                <div class="text-sm text-gray-600 mb-1">Mié.</div>
+                <div class="text-2xl font-bold">11</div>
+                <div class="text-xs">JUN.</div>
+            </div>
+            <div class="day-card bg-gray-100 rounded-lg p-3 text-center cursor-pointer hover:bg-gray-200 transition-colors" data-date="2025-06-12">
+                <div class="text-sm text-gray-600 mb-1">Jue.</div>
+                <div class="text-2xl font-bold">12</div>
+                <div class="text-xs">JUN.</div>
+            </div>
+            <div class="day-card bg-gray-100 rounded-lg p-3 text-center cursor-pointer hover:bg-gray-200 transition-colors" data-date="2025-06-13">
+                <div class="text-sm text-gray-600 mb-1">Vie.</div>
+                <div class="text-2xl font-bold">13</div>
+                <div class="text-xs">JUN.</div>
+            </div>
+            <div class="day-card bg-gray-100 rounded-lg p-3 text-center cursor-pointer hover:bg-gray-200 transition-colors" data-date="2025-06-14">
+                <div class="text-sm text-gray-600 mb-1">Sáb.</div>
+                <div class="text-2xl font-bold">14</div>
+                <div class="text-xs">JUN.</div>
+            </div>
+            <div class="day-card bg-gray-100 rounded-lg p-3 text-center cursor-pointer hover:bg-gray-200 transition-colors" data-date="2025-06-15">
+                <div class="text-sm text-gray-600 mb-1">Dom.</div>
+                <div class="text-2xl font-bold">15</div>
+                <div class="text-xs">JUN.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Time Slots -->
+    <div class="p-6">
+        <!-- Morning Hours -->
+        <div class="mb-6">
+            <div class="flex items-center gap-2 mb-4">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+                <h3 class="text-lg font-medium text-gray-900">Horarios AM</h3>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <button class="time-slot selected-time rounded-lg py-4 px-4 text-center font-medium transition-colors" data-time="09:00">
+                    09:00 AM
+                </button>
+                <button class="time-slot bg-gray-100 hover:bg-gray-200 rounded-lg py-4 px-4 text-center font-medium transition-colors" data-time="10:40">
+                    10:40 AM
+                </button>
+                <button class="time-slot bg-gray-100 hover:bg-gray-200 rounded-lg py-4 px-4 text-center font-medium transition-colors" data-time="11:30">
+                    11:30 AM
+                </button>
+            </div>
+        </div>
+
+        <!-- Afternoon Hours -->
+        <div class="mb-6">
+            <div class="flex items-center gap-2 mb-4">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
+                <h3 class="text-lg font-medium text-gray-900">Horarios PM</h3>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <button class="time-slot bg-gray-100 hover:bg-gray-200 rounded-lg py-4 px-4 text-center font-medium transition-colors" data-time="12:20">
+                    12:20 PM
+                </button>
+            </div>
+        </div>
+
+        <!-- Selected Appointment -->
+        <div class="bg-gray-50 rounded-lg p-4 mb-6">
+            <div class="flex items-center gap-2 mb-2">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a1 1 0 012 0v4m6-4v4m-1 0h-6m6 0V9a1 1 0 00-1-1H9a1 1 0 00-1 1v10a1 1 0 001 1h6a1 1 0 001-1V9z"></path>
+                </svg>
+                <h4 class="font-medium text-gray-900">Hora seleccionada</h4>
+            </div>
+            <p class="text-gray-700" id="selectedAppointment">Lun. 9 jun. 2025 - 09:00 AM</p>
+        </div>
+
+        <!-- Continue Button -->
+        <a class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2">
+            Confirmar Cita
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        <a/>
+    </div>
+</div>
+</Layout>
+
+<style>
+    .selected-day {
+        background-color: #3b82f6;
+        color: white;
+    }
+    .selected-time {
+        background-color: #3b82f6;
+        color: white;
+    }
+    .selected-time:hover {
+        background-color: #2563eb !important;
+    }
+</style>
