@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+const reserva = {
+  fecha: '8 de junio de 2025',
+  hora: '11:00',
+  patente: 'ABCD-12',
+};
+---
+<Layout>
+  <section class="bg-white text-gray-900 font-sans min-h-screen flex items-center justify-center px-4">
+    <div class="w-full max-w-md bg-white rounded-xl shadow-2xl p-6 text-center">
+      <!-- Icono de Check -->
+      <div class="flex justify-center items-center mb-4">
+        <div class="bg-green-100 p-4 rounded-full">
+          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+      </div>
+
+      <h1 class="text-xl font-semibold">Reserva confirmada</h1>
+      <p class="text-sm text-gray-500 mb-4">#172</p>
+
+      <div class="text-left space-y-2 text-sm">
+        <div class="flex justify-between">
+          <span class="font-medium text-gray-600">Fecha:</span>
+          <span>{reserva.fecha}</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="font-medium text-gray-600">Hora:</span>
+          <span>{reserva.hora}</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="font-medium text-gray-600">Patente:</span>
+          <span>{reserva.patente}</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>
